@@ -1,0 +1,30 @@
+[package]
+name = "aget"
+version = "1.0.0"
+authors = ["Douman <douman@gmx.se>"]
+edition = "2018"
+description = "Implementation of xxhash"
+readme = "README.md"
+repository = "https://github.com/DoumanAsh/aget"
+license = "BSL-1.0"
+keywords = ["http", "client"]
+include = [
+    "**/*.rs",
+    "Cargo.toml",
+    "README.md",
+    "LICENSE",
+]
+
+[dependencies.arg]
+version = "0.4"
+features = ["std"]
+
+[dependencies.ureq]
+version = "2.10"
+default-features = false
+features = ["tls", "json", "gzip"]
+
+[profile.release]
+lto = true
+opt-level = "z"
+codegen-units = 1
